@@ -152,7 +152,7 @@
                             <Button Content="Свойства..."
                                     x:Name="PropertiesBtn_PopupBtns"
                                     HorizontalContentAlignment="Left" Click="PropertiesBtn_PopupBtns_Click"/>
-                            <Button Content="Компановка файлов"
+                            <Button Content="Компоновка файлов"
                                     x:Name="FileCombinerBtn_PopupBtns"
                                     HorizontalContentAlignment="Left" Click="FileCombinerBtn_PopupBtns_Click"/>
 
