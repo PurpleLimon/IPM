@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Проекты_8_9_Классы.Styles">
+
+    <Brush x:Key="BackColor">#E6E6E6</Brush>
+    <Color x:Key="BackColorColor">#E6E6E6</Color>
+    <Brush x:Key="BorderColor">#CDCDCD</Brush>
+    <Color x:Key="BorderColorColor">#CDCDCD</Color>
+    
+    <Brush x:Key="HighLight">#E6AA35</Brush>
+    <Brush x:Key="LightHighLight">#DDA84F</Brush>
+    <Color x:Key="HighLightColor">#E6AA35</Color>
+    
+    <Brush x:Key="DarkHightLight">#E69713</Brush>
+    <Brush x:Key="ShadowHighLight">#ECA632</Brush>
+    <Brush x:Key="DarkShadowHighLight">#DB9012</Brush>
+
+</ResourceDictionary>

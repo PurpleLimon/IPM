@@ -1,0 +1,79 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:IPM.Styles">
+
+    <Style TargetType="{x:Type CheckBox}" x:Key="NormalCheckBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <BulletDecorator Background="Transparent">
+                        <BulletDecorator.Bullet>
+                            <Grid Height="36" Width="36">
+                                <Border Name="Button"
+                                        Height="36"
+                                        Width="36"
+                                        BorderBrush="{DynamicResource HighLight}"
+                                        BorderThickness="3"
+                                         Cursor="Hand">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="White" x:Name="p"/>
+                                    </Border.Background>
+                                    <TextBlock FontSize="{TemplateBinding FontSize}"
+                                               Name="Content"
+                                               Foreground="Black"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center">
+                                        <ContentPresenter Margin="1" x:Name="contentPresenter"/>
+                                    </TextBlock>
+
+                                </Border>
+                            </Grid>
+
+                        </BulletDecorator.Bullet>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="Common">
+                                <VisualState Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.07" To="{DynamicResource HighLightColor}"
+                                                        Storyboard.TargetName="p"
+                                                        Storyboard.TargetProperty="Color"/>
+                                        <ColorAnimation Duration="0:0:0.07" To="White"
+                                                        Storyboard.TargetName="Content"
+                                                        Storyboard.TargetProperty="Foreground.Color"/>
+
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.07" To="White"
+                                                        Storyboard.TargetName="p"
+                                                        Storyboard.TargetProperty="Color"/>
+                                        <ColorAnimation Duration="0:0:0.07" To="Black"
+                                                        Storyboard.TargetName="Content"
+                                                        Storyboard.TargetProperty="Foreground.Color"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0" To="{DynamicResource HighLightColor}"
+                                                        Storyboard.TargetName="p"
+                                                        Storyboard.TargetProperty="Color"/>
+                                        <ColorAnimation Duration="0" To="White"
+                                                        Storyboard.TargetName="Content"
+                                                        Storyboard.TargetProperty="Foreground.Color"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                    </BulletDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

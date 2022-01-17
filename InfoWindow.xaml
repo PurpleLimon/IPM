@@ -1,0 +1,492 @@
+﻿<Window x:Class="Проекты_8_9_Классы.InfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Проекты_8_9_Классы"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        x:Name="infoWindow"
+        Title="InfoWindow" Height="500" Width="800"
+        MinWidth="618.5"
+        MinHeight="450"
+        FontFamily="MS Reference Sans Serif" FontSize="20"
+        Foreground="Gray"
+        WindowStartupLocation="CenterScreen" 
+        Mouse.MouseMove="DragWindow"
+        WindowStyle="None"
+        BorderThickness="1"
+        BorderBrush="White">
+
+    <Window.Resources>
+        <Style TargetType="Run">
+            <Style.Triggers>
+                <Trigger Property="FontWeight" Value="Bold">
+                    <Setter Property="Foreground" Value="{DynamicResource HighLight}"/>
+                </Trigger>
+                <Trigger Property="FontSize" Value="20">
+                    <Setter Property="Foreground" Value="{DynamicResource DarkShadowHighLight}"/>
+                    <Setter Property="TextDecorations" Value="Underline"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:InfoWindow.Ctrl_C}" Executed="CTRL_C_Executed"/>
+    </Window.CommandBindings>
+    
+    <StackPanel>
+        <Grid Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Canvas Grid.Column="1"
+                    FlowDirection="RightToLeft"
+                    Background="White"
+                    >
+                <Button Margin="23,0,0,0" Style="{StaticResource Button_toolBox_close}" Width="37" Height="29" Click="CloseBtn_Click"/>
+                <Button Margin="58,0,0,0" Style="{StaticResource Button_toolBox_Max}" Width="37" Height="29" Click="MaxBtn_Click"/>
+                <Button Margin="93,0,0,0" IsEnabled="False" Style="{StaticResource Button_toolBox_Min}" Width="37" Height="29"/>
+            </Canvas>
+ 
+        </Grid>
+
+        <Border BorderThickness="5"
+                Margin="20,10">
+
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                    <GradientStop Color="{DynamicResource BorderColorColor}" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            
+            <ScrollViewer VerticalAlignment="Stretch"  Name="scrollViewer"
+                          FontSize="16"
+                          Foreground="Black">
+                <StackPanel Margin="10">
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run FontWeight="Bold" Text="    IPM (Individual Project Mark)"/>
+                        <Run Text="– программа для оценивания индивидуального итогового проекта (ИИП) учащихся 8-9 классов по программе Федерального государственного стандарта основного общего образования."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    В функционал программы входит:"/>
+                    </TextBlock>
+                    
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25"
+                               Margin="50,0,0,0">
+                        <Run Text="•	Создание, редактирование, сохранение файлов, в которых хранится информация по ученикам."/>
+                    </TextBlock>
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25"
+                               Margin="50,0,0,0">
+                        <Run Text="•	Экспорт данных файла в документ Microsoft Word"/>
+                    </TextBlock>
+
+                    <Border Margin="0,20"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25"
+                               TextAlignment="Center">
+                        <Run Text="Создание, редактирование, сохранение файлов" FontWeight="Bold"
+                             FontSize="20"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Создание файла" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Открыв программу IPM.exe Вы создаете новый файл «Безымянный.fsst», в котором Вам представляется рабочее поле программы, тем самым Вы можете начинать работать с новым созданным документом." />
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если Вам потребуется во время работы программы создать новый документ .fsst, Вы можете, находясь в окне с таблицей учащийся, выбрать меню "/>
+                        <Run Text="Файл > Создать," FontWeight="Bold"/>
+                        <Run Text="или нажать комбинацию клавиш"/>
+                        <Run Text="Ctrl + N." FontWeight="Bold"/>
+                        <Run Text="Если Ваш файл не был предварительно сохранен, Вам предложат его сохранить. После откроется диалоговое окно"/>
+                        <Run Text="«Создать новый»," FontWeight="Bold"/>
+                        <Run Text="где Вы сможете выбрать расположение нового документа и его имя."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Редактирование файла" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Добавление ученика" FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Чтобы создать поле с данными нового ученика нажмите кнопу"/>
+                        <Run Text="«Добавить»." FontWeight="Bold"/>
+                        <Run Text="Вам откроется новое окно: в графе"/>
+                        <Run Text="«Ученик»" FontWeight="Bold"/>
+                        <Run Text="введите ФИО ученика, в графе"/>
+                        <Run Text="«Класс»" FontWeight="Bold"/>
+                        <Run Text="введите его класс обучения (вместе с литерой), в графе"/>
+                        <Run Text="«Тема проекта»" FontWeight="Bold"/>
+                        <Run Text="введите тему проекта, выполненного учащимся, в графе"/>
+                        <Run Text="«Руководитель проекта»" FontWeight="Bold"/>
+                        <Run Text="введите ФИО руководителя проекта. Далее Вам представляется возможность проставить баллы за каждый из 14-ти критериев разделенные на блоки по 2-4 критерия внутри."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    В первом столбце таблицы указан индивидуальный номер критерия, состоящий из двух частей: «Номер блока критериев».«Порядковый номер критерия в блоке». Во втором столбце таблицы указано название критерия. В третьем столбце нужно проставить кол-во баллов за этот критерий в диапазоне от 1 до 3. В случае, если Вы сомневаетесь в результате проделанной учеником работы по любому из 14 критериев вы можете нажать на иконку подсказки"/>
+                        <InlineUIContainer BaselineAlignment="Center">
+                            <Grid>
+                                <Ellipse VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         Fill="{StaticResource HighLight}"
+                                         Width="25"
+                                         Height="25"/>
+                                <TextBlock Text="?"
+                                           VerticalAlignment="Center"
+                                           Foreground="White"
+                                           FontWeight="Bold"
+                                           Margin="8,5,0,0"/>
+                            </Grid>
+                        </InlineUIContainer>
+                        <Run Text="слева от каждого критерия. Вам будут представлены показатели выставления каждого из 3-х баллов."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    По завершению заполнения всех полей окна и проставления баллов кнопка"/>
+                        <Run Text="«Сохранить»" FontWeight="Bold"/>
+                        <Run Text="будет активирована. По нажатию на нее окно данных ученика закроется, а данные по ученику будут добавлены в таблицу учеников с автоматически заполненными полями и проставленной оценкой на основе его баллов."/>
+                        
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если Вы хотите отменить добавление данных ученика, нажмите ЛКМ по кнопке"/>
+                        <Run Text="«Отменить»." FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Редактирование данных ученика" FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если Вам требуется изменить данные ученика, нажмите на соответствующее поле в таблице ЛКМ и выберите активировавшееся меню"/>
+                        <Run Text="«Редактировать»" FontWeight="Bold"/>
+                        <Run Text="или нажмите на ячейку ученика ЛКМ, затем ПКМ и в появившемся меню выберите пункт"/>
+                        <Run Text="«Редактировать»." FontWeight="Bold"/>
+                        <Run Text="Все данные ученика будут автоматически проставлены, а Вы сможете отредактировать любой из предоставленных пунктов. По завершению редактирования нажмите на кнопку"/>
+                        <Run Text="«Сохранить»," FontWeight="Bold"/>
+                        <Run Text="окно данных ученика закроется, а его поля в таблице учеников будут изменены."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="Если Вы хотите отменить редактирование ученика, нажмите ЛКМ по кнопке"/>
+                        <Run Text="«Отменить»." FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Удаление данных ученика" FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="   Если Вам потребуется удалит ученика из файла нажмите на него ЛКМ в таблице учеников и нажмите активировавшуюся кнопку"/>
+                        <InlineUIContainer BaselineAlignment="Center">
+                            <Grid>
+                                <Border x:Name="BaseBorder"
+                                        Background="White"
+                                        BorderBrush="{DynamicResource HighLight}"
+                                        BorderThickness="2"
+                                        CornerRadius="2"
+                                        Width="40"
+                                        Height="40"/>
+                                
+                                <iconPacks:PackIconMaterial Kind="DeleteCircle"
+                                                            Name="TrashBinIcon"
+                                                            Width="30" Height="30"
+                                                            VerticalAlignment="Center"
+                                                            HorizontalAlignment="Center">
+                                    <iconPacks:PackIconMaterial.Foreground>
+                                        <SolidColorBrush Color="{DynamicResource HighLightColor}"/>
+                                    </iconPacks:PackIconMaterial.Foreground>
+                                </iconPacks:PackIconMaterial>
+                            </Grid>
+                        </InlineUIContainer>
+                        <Run Text="или нажмите на него ЛКМ, затем ПКМ и в появившемся меню выберите пункт"/>
+                        <Run Text="«Удалить»." FontWeight="Bold"/>
+                        <Run Text="Вам будет показано диалоговое окно, в котором можно подтвердить или отменить действие."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Отмена действий " FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если Вам требуется отменить действие нажмите"/>
+                        <Run Text="Файл > Отменить" FontWeight="Bold"/>
+                        <Run Text="или комбинацию клавиш"/>
+                        <Run Text="Ctrl + Z." FontWeight="Bold"/>
+                        <Run Text="Чтобы восстановить отмененное действие нажмите"/>
+                        <Run Text="Файл > Вернуть" FontWeight="Bold"/>
+                        <Run Text="или комбинацию клавиш"/>
+                        <Run Text="Ctrl + Shift + Z." FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Сохранение файла" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Любое действие, произведенное в программе не будет сохранено в файле .fsst, до тех пор, пока не будет выбран пункт"/>
+                        <Run Text="Файл > Сохранить (Ctrl + S)" FontWeight="Bold"/>
+                        <Run Text="или"/>
+                        <Run Text="Файл > Сохранить как… (Ctrl + Shift + S)." FontWeight="Bold"/>
+                        <Run Text="Чтобы узнать, работаете Вы сейчас с сохраненной версией документа или нет, обратите внимание на его название в левом верхнем углу. Если перед именем файла стоит звездочка"/>
+                        <Run Text="«*»," FontWeight="Bold"/>
+                        <Run Text="значит файл не сохранен. Как только будет вызвана одна из двух команд"/>
+                        <Run Text="«Сохранить»" FontWeight="Bold"/>
+                        <Run Text="или"/>
+                        <Run Text="«Сохранить как»," FontWeight="Bold"/>
+                        <Run Text="знак звездочки"/>
+                        <Run Text="«*»" FontWeight="Bold"/>
+                        <Run Text="будет убран, что подскажет Вам о том, что в документе больше нет несохраненных изменений."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Файл > Сохранить (Ctrl + S)" FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если файл, с которым Вы сейчас работаете не был сохранен ни разу, Вам будет показано диалоговое окно"/>
+                        <Run Text="«Сохранить»," FontWeight="Bold"/>
+                        <Run Text="в котором Вы сможете выбрать путь, куда сохранить файл, и дать ему имя. Если этот файл уже был создан и сохранен, то по выбору этого пункта меню изменения этого файла будут сохранены в этот же файл."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="•	Файл > Сохранить как (Ctrl + Shift + S)" FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Функция"/>
+                        <Run Text="«Сохранить как»" FontWeight="Bold"/>
+                        <Run Text="нужна, если Вам требуется сохранить данные файла в другой документ. По нажатию на этот пункт вам будет показано диалоговое окно"/>
+                        <Run Text="«Сохранение»," FontWeight="Bold"/>
+                        <Run Text="в котором Вы сможете выбрать путь, куда сохранить файл, и дать ему имя."/>
+                    </TextBlock>
+
+                    <Border Margin="0,20"/>
+                    
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25"
+                               TextAlignment="Center">
+                        <Run Text="Экспорт данных файла в документ Microsoft Word" FontWeight="Bold"
+                             FontSize="20"/>
+                    </TextBlock>
+                    
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Функция экспорта данных файла в документ"/>
+                        <Run Text="Microsoft Word" FontWeight="Bold"/>
+                        <Run Text="в основном предназначена для вывода документа на печать. Чтобы сохранить файл .fsst как документ"/>
+                        <Run Text="Microsoft Word," FontWeight="Bold"/>
+                        <Run Text="нажмите справа от таблицы учащихся на кнопку"/>
+                        <Run Text="«Протокол»." FontWeight="Bold"/>
+                        <Run Text="В появившемся диалоговом окне"/>
+                        <Run Text="«Протокол»" FontWeight="Bold"/>
+                        <Run Text="выберите путь, куда сохранить файл и введите имя, под которым Вы хотите сохранить документ.  Как только Вы нажмете"/>
+                        <Run Text="«Сохранить»," FontWeight="Bold"/>
+                        <Run Text="Вас попросят ввести дату проведениязащиты и дату внесения оценок в протокол, где автоматически будут проставлены системные даты. Вы можете изменить их, для этого просто введите новую дату в формате"/>
+                        <Run Text="«дд.мм.гггг»" FontWeight="Bold"/>
+                        <Run Text="По завершению проставления дат нажмите"/>
+                        <Run Text="«Сохранить»." FontWeight="Bold"/>
+                        <Run Text="Если процесс сохранения пройдет успешно, программа уведомит вас об этом."/>
+                    </TextBlock>
+
+                    <Border Margin="0,20"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25"
+                               TextAlignment="Center">
+                        <Run Text="Другой функционал программы" FontWeight="Bold"
+                             FontSize="20"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Файл > Открыть (Ctrl + F)" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    В процессе работы программы может быть необходимым открыть другой документ .fsst. Для этого выберите пункт меню"/>
+                        <Run Text="Файл > Открыть (Ctrl + F)." FontWeight="Bold"/>
+                        <Run Text="Если файл, с которым Вы работали не был сохранен, то Вам предложат предварительно сохранить его. После Вам будет показано диалоговое окно"/>
+                        <Run Text="«Открыть»," FontWeight="Bold"/>
+                        <Run Text="где Вы сможете выбрать интересующий Вас документ .fsst."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Сортировка" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Если вам требуется отсортировать учеников в таблице по некоторому показателю в правой части окна с таблицей учеников находятся 4 кнопки сортировки:"/>
+                        <Run Text="«По классу», «По ФИО учеников», «По баллам», «По руководителю»." FontWeight="Bold"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Кнопка"/>
+                        <Run Text="«По классу»" FontWeight="Bold"/>
+                        <Run Text="сортирует всех учеников сначала на блоги по их году обучения, а затем в каждом блоке сортирует учащихся по литере."/>
+                        
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Кнопка"/>
+                        <Run Text="«По ФИО учеников»" FontWeight="Bold"/>
+                        <Run Text="сортирует учащихся по алфавиту."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Кнопка"/>
+                        <Run Text="«По руководителю»" FontWeight="Bold"/>
+                        <Run Text="сортирует учащихся в алфавитном порядке их руководителей."/>
+                        
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    Кнопка"/>
+                        <Run Text="«По баллам»" FontWeight="Bold"/>
+                        <Run Text="сортирует учеников в порядке убывания их баллов."/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    •	Индивидуальный протокол ученика" FontWeight="Bold" FontSize="18"/>
+                    </TextBlock>
+
+                    <Border Margin="0,10"/>
+
+                    <TextBlock TextWrapping="Wrap"
+                               LineHeight="25">
+                        <Run Text="    В функционал программы входит вывод отчета по одному ученику. В случае возникновения потребности проверить внесенные даты без возможности их редактирования нажмите ЛКМ по графе ученика, затем ПКМ, и в появившемся меню выберите пункт"/>
+                        <Run Text="«Протокол ученика»." FontWeight="Bold"/>
+                        <Run Text="Вам откроется окно с полной информацией о ученике и баллах за каждый из критериев, проставленные членами комиссии."/>
+                    </TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <StackPanel HorizontalAlignment="Right" Margin="20,0">
+            <TextBlock x:Name="CopyrightTB" Text="Разработчик: Козырев Даниил | kozyrev_lit@mail.ru" TextAlignment="Right">
+                <TextBlock.ToolTip>
+                    <ToolTip>
+                        Ctrl + C с наведенной на текст мышью чтобы скопировать адрес электронной почты
+                    </ToolTip>
+                </TextBlock.ToolTip>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Right" Text="v1.7.0.0"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

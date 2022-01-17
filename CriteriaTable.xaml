@@ -1,0 +1,426 @@
+﻿<UserControl x:Class="Проекты_8_9_Классы.CriteriaTable"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Проекты_8_9_Классы"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" d:DesignWidth="800" Height="2348">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+
+            <Brush x:Key="BackColor">#E6E6E6</Brush>
+            <Brush x:Key="BorderColor">#CDCDCD</Brush>
+            <Brush x:Key="HighLight">#E6AA35</Brush>
+
+            <system:Double x:Key="ElementHight">100</system:Double>
+
+            <Style x:Key="ElementInTableStyle" TargetType="Border">
+                <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
+                <Setter Property="BorderThickness" Value="0,0,2,2"/>
+                <Setter Property="Background" Value="{StaticResource BackColor}"/>
+            </Style>
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+
+    <Grid Background="White">
+        <Border Background="White"
+                BorderBrush="#CDCDCD"
+                BorderThickness="2, 2, 0, 2" 
+                Margin="0,5,0,0"
+                >
+            <ScrollViewer x:Name="scrollViewer" FontSize="16" VerticalScrollBarVisibility="Auto"
+                          Thumb.DragDelta="scrollViewer_DragDelta">
+                <StackPanel x:Name="ItemBase">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="0.57*"/>
+                            <ColumnDefinition Width="0.43*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="1" Style="{StaticResource ElementInTableStyle}"
+                                BorderThickness="2,0,2,2"/>
+
+                        <Border Grid.Column="2" Style="{StaticResource ElementInTableStyle}">
+                            <Label Content="Критерий" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                        </Border>
+                        <Border Grid.Column="3" Style="{StaticResource ElementInTableStyle}">
+                            <Label Content="Количество баллов" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                        </Border>
+                    </Grid>
+
+                    <!--#region 1. Способность к самостоятельному приобретению знаний и решению проблем -->
+
+                    <Border MinHeight="65" Margin="30,0,0,0" Height="auto"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="2">
+                        <Border Background="{DynamicResource BackColor}"
+                                Margin="0"
+                                BorderBrush="{DynamicResource HighLight}"
+                                BorderThickness="2">
+                            <TextBlock Text="1. Способность к самостоятельному приобретению знаний и решению проблем"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontSize="17"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                    </Border>
+
+                    <local:CriteriaTableElement LabelContent="1.1"
+                                                Height="{DynamicResource ElementHight}"
+                                                Tag="criterion"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Поиск, отбор и адекватное использование информации">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow"
+                                           Text="1 балл - Работа содержит незначительный объем подходящей информации из ограниченного числа источников"/>
+                                <TextBlock TextWrapping="WrapWithOverflow"
+                                           Text="2 балла - Работа содержит достаточный объем подходящей информации из однотипных источников"/>
+                                <TextBlock TextWrapping="WrapWithOverflow"
+                                           Text="3 балла - Работа содержит достаточно полную информацию из разнообразных источников"/>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="1.2"
+                                                Height="{DynamicResource ElementHight}"
+                                                Tag="criterion"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Актуальность и значимость темы проекта">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Актуальность темы проекта и её значимость для ученика обозначены фрагментарно на уровне утверждений"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Актуальность темы проекта и её значимость для ученика обозначены на уровне утверждений, приведены основания"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Актуальность темы проекта и её значимость раскрыты и обоснованы  исчерпывающе, тема имеет актуальность и значимость не только для ученика, но и для школы, города"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="1.3"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Личная заинтересованность автора, творческий подход к работе">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Работа шаблонная. Автор проявил незначительный интерес к теме проекта, но не продемонстрировал самостоятельности в работе, не использовал возможности творческого подхода"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Работа самостоятельная, демонстрирующая серьезную заинтересованность автора, предпринята попытка представить личный взгляд на тему проекта, применены элементы творчества"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Работа отличается творческим подходом, собственным оригинальным отношением автора к идее проекта"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="1.4"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Полезность и востребованность продукта">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Проектный продукт полезен после доработки, круг лиц, которыми он может быть востребован, указан  неявно"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Проектный продукт полезен, круг лиц, которыми он может быть востребован, указан. Названы потенциальные потребители и области использования продукта"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Продукт полезен. Указан круг лиц, которыми он будет востребован. Сформулированы рекомендации по использованию полученного продукта, спланированы действия по его продвижению"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+                    <!--#endregion-->
+
+                    <!--#region 2. Сформированность предметных знаний и способов действий -->
+
+                    <Border MinHeight="65" Margin="30,0,0,0" Height="auto"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="2">
+                        <Border Background="{DynamicResource BackColor}"
+                                Margin="0"
+                                BorderBrush="{DynamicResource HighLight}"
+                                BorderThickness="2">
+                            <TextBlock Text="2. Сформированность предметных знаний и способов действий"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontSize="17"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                    </Border>
+
+                    <local:CriteriaTableElement LabelContent="2.1"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Соответствие выбранных способов работы цели и содержанию проекта ">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Часть используемых способов работы не соответствует теме и цели проекта, цели могут быть до конца не достигнуты"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Использованные способы работы соответствуют теме и цели проекта, но являются недостаточными"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Способы работы достаточны и использованы уместно и эффективно, цели проекта достигнуты"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="2.2"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Глубина раскрытия темы проекта ">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Тема проекта раскрыта фрагментарно"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Тема проекта раскрыта, автор показал знание темы в рамках школьной программы"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Тема проекта раскрыта исчерпывающе, автор продемонстрировал глубокие знания, выходящие за рамки школьной программы"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="2.3"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Качество проектного продукта">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Проектный продукт не соответствует большинству требований качества (эстетика, удобство использования, соответствие заявленным целям)"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Продукт не полностью соответствует требованиям качества"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Продукт полностью соответствует требованиям качества (эстетичен, удобен в использовании, соответствует заявленным целям)"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="2.4"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Использование средств наглядности, технических средств ">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Средства наглядности, в т.ч. ТСО используются фрагментарно, не выдержаны основные требования к дизайну презентации"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Средства наглядности, в т.ч. ТСО используются, выдержаны основные требования к дизайну презентации, отсутствует логика подачи материала, нет согласованности между презентацией и текстом доклада"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Средства наглядности, в т.ч. ТСО используются, выдержаны основные требования к дизайну презентации, подача материала логична, презентация и текст доклада полностью согласованы"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <!--#endregion-->
+
+                    <!--#region 3. Сформированность регулятивных действий -->
+
+                    <Border MinHeight="65" Margin="30,0,0,0" Height="auto"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="2">
+                        <Border Background="{DynamicResource BackColor}"
+                                Margin="0"
+                                BorderBrush="{DynamicResource HighLight}"
+                                BorderThickness="2">
+                            <TextBlock Text="3. Сформированность регулятивных действий"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontSize="17"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                    </Border>
+
+                    <local:CriteriaTableElement LabelContent="3.1"
+                                                Height="{DynamicResource ElementHight}"
+                                                Tag="criterion"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Соответствие требованиям оформления письменной части ">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Предприняты попытки оформить работу в соответствии с установленными правилами, придать ей соответствующую структуру"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Письменная часть работы оформлена с опорой на установленные правилами порядок и четкую структуру, допущены незначительные ошибки в оформлении"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Работа отличается четким и грамотным оформлением в точном соответствии с установленными правилами"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="3.2"
+                                                Height="{DynamicResource ElementHight}"
+                                                Tag="criterion"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Постановка цели, планирование путей ее достижения">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Цель сформулирована, обоснована, дан схематичный план ее достижения"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Цель сформулирована, обоснована, планирование деятельности соотносится с собственным жизненным опытом, задачи реализуются последовательно"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Цель сформулирована, четко обоснована, дан подробный план ее достижения, самостоятельно осуществляет контроль и коррекцию деятельности"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="3.3"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Сценарий защиты (логика изложения), грамотное построение доклада">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Тема и содержание проекта  раскрыты фрагментарно, дано сравнение ожидаемого и полученного результатов"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Тема и содержание проекта раскрыты, представлен развернутый обзор работы по достижению целей, заявленных в проекте"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Тема и содержание проекта раскрыты. Представлен анализ ситуаций, складывавшихся в ходе работы, сделаны необходимые выводы, намечены перспективы работы"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="3.4"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Соблюдение регламента защиты (не более 5-7 мин.) и степень воздействия на аудиторию">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Материал изложен с учетом регламента, однако автору не удалось заинтересовать аудиторию"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Автору удалось вызвать интерес аудитории, но он вышел за рамки регламента"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Автору удалось вызвать интерес аудитории и уложиться в регламент"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <!--#endregion-->
+
+                    <!--#region 4. Сформированность коммуникативных действий -->
+
+                    <Border MinHeight="65" Margin="30,0,0,0" Height="auto"
+                            BorderBrush="{DynamicResource BorderColor}"
+                            BorderThickness="2">
+                        <Border Background="{DynamicResource BackColor}"
+                                Margin="0"
+                                BorderBrush="{DynamicResource HighLight}"
+                                BorderThickness="2">
+                            <TextBlock Text="4. Сформированность коммуникативных действий"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"
+                                       FontSize="17"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Center"/>
+                        </Border>
+
+                    </Border>
+
+                    <local:CriteriaTableElement LabelContent="4.1"
+                                                Height="{DynamicResource ElementHight}"
+                                                Tag="criterion"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Четкость и точность, убедительность и лаконичность">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Cодержание всех элементов выступления дают представление о проекте; присутствует культура речи, наблюдаются немотивированные отступления от заявленной темы в ходе выступления"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Cодержание всех элементов выступления дают представление о проекте; присутствует культура речи, немотивированные отступления от заявленной темы в ходе выступления отсутствуют"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Cодержание всех элементов выступления дают представление о проекте; наблюдается правильность речи; точность устной и письменной речи; четкость речи, лаконизм, немотивированные отступления от заявленной темы в ходе выступления отсутствуют"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <local:CriteriaTableElement LabelContent="4.2"
+                                                Tag="criterion"
+                                                Height="{DynamicResource ElementHight}"
+                                                HorizontalAlignment="Stretch"
+                                                CriteriaText="Умение отвечать на вопросы, умение защищать свою точку зрения">
+                        <local:CriteriaTableElement.HintContent>
+                            <StackPanel>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="1 балл - Ответы на поставленные вопросы однословные, неуверенные. Автор не может защищать свою точку зрения"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="2 балла - Автор уверенно отвечает на поставленные вопросы, но не до конца обосновывает свою точку зрения"/>
+                                </TextBlock>
+                                <TextBlock TextWrapping="WrapWithOverflow">
+                                    <Run Text="3 балла - Автор проявляет хорошее владение материалом, уверенно отвечает на поставленные вопросы, доказательно и развернуто  обосновывает свою точку зрения"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </local:CriteriaTableElement.HintContent>
+                    </local:CriteriaTableElement>
+
+                    <!--#endregion-->
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,136 @@
+﻿<Window x:Class="Проекты_8_9_Классы.DateInputForDocxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Проекты_8_9_Классы"
+        mc:Ignorable="d"
+        Title="Ввод Данных"
+        Height="353.224" Width="466"
+        FontFamily="MS Reference Sans Serif" 
+        WindowStartupLocation="CenterScreen" 
+        Mouse.MouseMove="DragWindow"
+        WindowStyle="None"
+        BorderBrush="DarkGray"
+        BorderThickness="1"
+        FontSize="15"
+        ResizeMode="NoResize">
+
+    <StackPanel>
+        <Canvas Grid.Column="1"
+                    FlowDirection="RightToLeft"
+                    Background="White"
+                    >
+            <Button Margin="23,0,0,0" IsCancel="True" Style="{StaticResource Button_toolBox_close}" Width="37" Height="29" Click="Button_Click"/>
+            <Button IsEnabled="False" Margin="58,0,0,0" Style="{StaticResource Button_toolBox_Max}" Width="37" Height="29"/>
+            <Button IsEnabled="False" Margin="93,0,0,0" Style="{StaticResource Button_toolBox_Min}" Width="37" Height="29"/>
+        </Canvas>
+
+
+        <Grid Margin="15,50,15,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="31*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50" x:Name="TeachersRowMain"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="Председатель комиссии:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap" Width="auto"/>
+            <TextBox Grid.Row="0" Grid.Column="1"
+                     Margin="0,10"
+                     x:Name="ChairmanName_TB"
+                     Keyboard.KeyDown="ChairmanName_TB_KeyDown"
+                     TextChanged="ChairmanName_TB_TextChanged"/>
+
+            <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        x:Name="TeachersStackPanel">
+                <Grid x:Name="FirstTeacher">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="31*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="Член комиссии:"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap" Width="auto"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"
+                         Margin="0,10"
+                         Tag="Teacher_TB"
+                         x:Name="TeacherName_TB"
+                         Keyboard.KeyDown="TeacherName_TB_KeyDown"
+                         TextChanged="TB_TextChanged"/>
+                </Grid>
+            </StackPanel>
+            
+            
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Дата проведения защиты:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap" Width="auto"/>
+
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Border Margin="0,9"
+                        BorderBrush="Red"
+                        Visibility="Hidden"
+                        BorderThickness="0,1,0,1"
+                        x:Name="examBorder"/>
+                <TextBox x:Name="examinationDate_TB"
+                         Margin="0,10"
+                         Keyboard.KeyDown="examinationDate_TB_KeyDown"
+                         TextChanged="DateTB_TextChanged"/>
+            </Grid>
+
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       Text="Дата внесения в протокол оценок:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap" Width="auto"/>
+
+            <Grid Grid.Row="3" Grid.Column="1">
+                <Border Margin="0,9"
+                        BorderBrush="Red"
+                        Visibility="Hidden"
+                        BorderThickness="0,1,0,1"
+                        x:Name="inputBorder"/>
+                <TextBox Margin="0,10"
+                         x:Name="inputDate_TB"
+                         Keyboard.KeyDown="inputDate_TB_KeyDown"
+                         TextChanged="DateTB_TextChanged"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Margin="15,45,15,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Style="{StaticResource Btn}" Content="Сохранить"
+                    Margin="20,0"
+                    x:Name="SaveBtn"
+                    IsEnabled="False"
+                    IsCancel="False" Click="Button_Click_1"/>
+            <Button  Style="{StaticResource Btn}" Content="Отменить"
+                    Margin="20,0"
+                    IsCancel="True" Click="Button_Click_2"/>
+        </Grid>
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Проекты_8_9_Классы.Styles">
+    
+    <Style x:Key="Border_darkOne" TargetType="Border">
+        <Setter Property="Background" Value="#cdcdcd"/>
+        <Setter Property="BorderBrush" Value="#e6e6e6"/>
+        <Setter Property="BorderThickness" Value="3"/>
+    </Style>
+    
+</ResourceDictionary>
